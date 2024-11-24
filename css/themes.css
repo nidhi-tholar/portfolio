@@ -1,19 +1,43 @@
 /* Color Palette for Theme */
 :root {
-    --background-light: hsla(39, 77%, 83%, 1); /* wheat */
-    --background-dark: hsla(142, 24%, 14%, 1);
-    --text-light: hsla(39, 77%, 83%, 1); /* wheat */
-    --text-dark: hsla(142, 24%, 14%, 1);
+    --background-light: #f8e6c4; /* Light background */
+    --text-color: #553d3a; /* dark text color for light theme - hsla(142, 24%, 14%, 1) */
+    --link-color: #553d3a; /* Default link color */
+    --link-active-bg: hsl(0deg 0% 100% / 50%); 
+    /* --link-hover-color: blue; Link hover color */
+    --backdrop-light: hsl(45deg 17% 95% / 80%);
+    
 }
 
-/* Day Mode (default theme) */
-body {
-    background-color: var(--background-light);
-    color: var(--text-dark);
+/* Dark Theme Colors */
+body.dark-mode {
+    --background-dark: #553d3a; /* Dark background */
+    --text-color: #f8e6c4; /* light text color for Dark theme - hsla(159, 42%, 88%, 1); */
+    --link-color: #f8e6c4; /* Lighter link color for dark mode */
+    --link-active-bg: hsl(0deg 2.35% 14.46% / 50%);
+    /* --link-hover-color: red; Link hover color in dark mode */
+    --backdrop-dark: hsl(350.21deg 19.58% 14.13% / 70%); /* Darker backdrop */
 }
 
 /* Dark Mode Styles */
+
 body.dark-mode {
     background-color: var(--background-dark);
-    color: var(--text-light);
+    color: var(--text-color); /* Apply dark mode text color */
 }
+
+body.dark-mode .nav-links a {
+    color: var(--link-color); /* Use lighter link color in dark mode */
+}
+
+body.dark-mode .nav-links a.active {
+    background-color: var(--link-active-bg);
+}
+
+
+/* Dark mode specific styles for nav links when scrolled */
+body.dark-mode .nav-links.scrolled {
+    background-color: var(--backdrop-dark); /* Dark mode background */
+    backdrop-filter: blur(20px) saturate(1.7);
+}
+

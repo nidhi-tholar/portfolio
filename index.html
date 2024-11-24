@@ -11,14 +11,68 @@
     <link rel="stylesheet" href="css/themes.css">
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <div id="theme-toggle" class="toggle-btn">
-        <i class="bi bi-sun-fill light-icon"></i>
-        <i class="bi bi-moon-stars-fill dark-icon"></i>
-    </div>
+    <!-- Header Section -->
+    <header class="header">
+
+        <div></div>
+
+        <!--Menu links-->
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <div id="theme-toggle" class="toggle-btn">
+            <i class="bi bi-brightness-high light-icon"></i>
+            <i class="bi bi-moon-stars dark-icon"></i>
+        </div>
+    </header>
+
+    <!-- Main Content with Scroll Sections -->
     <div class="content">
-        <h1>Coming Soon!</h1>
+        <section class="section section-1" id="home">
+            <div style="width: 80%;">
+                <img src="/images/my_picture.jpg" alt="Your Name" style="width: 175px; height: 175px; border-radius: 50%; margin-bottom: 10px;">
+                <span style="font-size: 60px; display: block; margin-bottom: 10px; letter-spacing: 2px;">Nidhi Tholar Kuchur</span>
+                <span style="font-size: 32px; display: block; margin-bottom: 8px; letter-spacing: 1px;">Full-stack Developer, Data</span>
+                <span style="font-size: 16px; display: block; margin-bottom: 12px; letter-spacing: 0.5px;">With a diverse background in web development and data analytics, I am dedicated to leveraging technology to drive data-driven decision-making, while nurturing a deeper sense of user empathy.</span>
+            </div>           
+
+        </section>
+
+        <section class="section section-2" id="skills">
+            <div style="width: 80%;">
+                <h2>Skills</h2>
+                <span>D3 chart here</span>
+            </div>
+        </section>
+
+        <section class="section section-2" id="experience">
+            <div style="width: 80%;">
+                <h2>Experience</h2>
+                <span>work exp summary</span>
+            </div>
+        </section>
+        
+        <section class="section section-2" id="projects">
+            <div style="width: 80%;">
+                <h2>Projects</h2>
+                <span>Details of my projects...</span>
+            </div>
+        </section>
+        
+        <section class="section section-3" id="contact">
+            <div style="width: 80%;">
+                <h2>Contact</h2>
+                <span>contact info and links...</span>
+            </div>  
+        </section>
     </div>
-    <script src="js/main.js"></script>
+
 </body>
+<script src="js/main.js" defer></script>
 </html>
