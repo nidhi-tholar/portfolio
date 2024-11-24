@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Theme Toggle button */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 35px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* theme toggle - Icon styling*/
+.toggle-btn i {
+    font-size: 20px;
+    color: black;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Sun icon */
+.light-icon {
+    opacity: 1; /* Visible by default */
+    transform: scale(1);
+}
+
+/* Moon icon */
+.dark-icon {
+    opacity: 0; /* Hidden by default */
+    transform: scale(0.8);
+}
+
+/* Dark mode button background */
+body.dark-mode .toggle-btn {
+    background-color: #ccc;
+}
+
+/* Swap icons in dark mode */
+body.dark-mode .light-icon {
+    opacity: 0;
+    transform: scale(0.8);
+}
+body.dark-mode .dark-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+

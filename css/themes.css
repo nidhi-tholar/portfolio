@@ -1,0 +1,19 @@
+/* Color Palette for Theme */
+:root {
+    --background-light: hsla(39, 77%, 83%, 1); /* wheat */
+    --background-dark: hsla(142, 24%, 14%, 1);
+    --text-light: hsla(39, 77%, 83%, 1); /* wheat */
+    --text-dark: hsla(142, 24%, 14%, 1);
+}
+
+/* Day Mode (default theme) */
+body {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
