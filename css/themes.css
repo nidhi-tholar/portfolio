@@ -11,12 +11,12 @@
 
 /* Dark Theme Colors */
 body.dark-mode {
-    --background-dark: #553d3a; /* Dark background */
-    --text-color: #f8e6c4; /* light text color for Dark theme - hsla(159, 42%, 88%, 1); */
-    --link-color: #f8e6c4; /* Lighter link color for dark mode */
-    --link-active-bg: hsl(0deg 2.35% 14.46% / 50%);
+    --background-dark: #212121; /* Dark background */
+    --text-color: #E0E0E0; /* light text color for Dark theme - hsla(159, 42%, 88%, 1); */
+    --link-color: #E0E0E0; /* Lighter link color for dark mode */
+    --link-active-bg: hsl(0deg 1.45% 44.76% / 50%);
     /* --link-hover-color: red; Link hover color in dark mode */
-    --backdrop-dark: hsl(350.21deg 19.58% 14.13% / 70%); /* Darker backdrop */
+    --backdrop-dark: hsl(350.21deg 3.45% 26.01% / 70%); /* Darker backdrop */
 }
 
 /* Dark Mode Styles */
@@ -33,7 +33,6 @@ body.dark-mode .nav-links a {
 body.dark-mode .nav-links a.active {
     background-color: var(--link-active-bg);
 }
-
 
 /* Dark mode specific styles for nav links when scrolled */
 body.dark-mode .nav-links.scrolled {
