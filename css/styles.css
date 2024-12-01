@@ -7,10 +7,9 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-family: Georgia, serif;
     height: 100vh;
     overflow-x: hidden; 
-    background-color: var(--background-light);
+    background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
 }
@@ -24,6 +23,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 10px;
     z-index: 1000;
     transition: background-color 0.3s, color 0.3s;
@@ -34,10 +34,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-
     padding: 10px;
-    border-radius: 50px;
-
+    border-radius: 25px;
     background-color: transparent;
     backdrop-filter: none;
     transition: background-color 0.3s, backdrop-filter 0.3s; /* for transition */
@@ -45,8 +43,14 @@ body {
 
 /* Nav Links background when scrolled */
 .nav-links.scrolled {
-    background-color: var(--backdrop-light);
-    backdrop-filter: blur(10px) saturate(1.7);
+    background-color: var(--backdrop-color);
+    backdrop-filter: blur(15px) saturate(1.7);
+    width: auto; /* Default width */
+    max-width: 90%; /* Constrain to 90% of the screen width */
+    margin: 0 auto; /* Center the navigation links */
+    padding: 10px; /* Ensure padding fits well */
+    border-radius: 25px; /* Round the edges */
+    transition: all 0.3s ease-in-out; /* Smooth animation */
 }
 
 .nav-links a {
@@ -65,7 +69,7 @@ body {
 
 /* Theme Toggle button */
 .toggle-btn {
-    background-color: var(--backdrop-light);
+    background-color: var(--backdrop-color);
     backdrop-filter: blur(10px) saturate(1.7);
     border-radius: 50px;
     cursor: pointer;
@@ -81,7 +85,7 @@ body {
 .toggle-btn i {
     font-size: 20px;
     transition: opacity 0.3s ease;
-    color: black;
+    color: var(--text-color);
 }
 
 /* Sun icon */
@@ -103,6 +107,42 @@ body.dark-mode .dark-icon {
 }
 
 /* Toggle styling ends here */
+
+/* For phone screens */
+@media screen and (max-width: 768px) {
+    /* Header adjustments */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .nav-links.scrolled {
+        width: auto; /* Occupy full width on smaller screens */
+        padding: 10px; /* Add padding for better spacing */
+        border-radius: 0; /* Remove rounded edges for simplicity */
+        margin: 0; /* Remove centering */
+        text-align: center; /* Ensure text aligns properly */
+    }
+
+    .toggle-btn {
+        margin-top: 10px;
+    }
+}
+
 
 /* Section styles - 100% viewport height for each */
 .content {
@@ -168,7 +208,7 @@ body.dark-mode .dark-icon {
     width: 500px;
     height: auto;
     max-width: 50vw;
-    max-height: 80vh;
+    max-height: 70vh;
     overflow: scroll;
 }
 
@@ -200,4 +240,99 @@ body.dark-mode .dark-icon {
     font-weight: bold;
     font-style: italic;
 }
-  
+
+/* Experience Section */
+
+#experience {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.experience-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards per row for large screens */
+    gap: 20px;
+}
+
+/* For medium screens (e.g., tablets) */
+@media (max-width: 1200px) {
+    .experience-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row for medium screens */
+    }
+}
+
+/* For small screens (e.g., mobile) */
+@media (max-width: 768px) {
+    .experience-container {
+        grid-template-columns: 1fr; /* 1 card per row for small screens */
+    }
+
+    .experience-card {
+        height: 150px !important; /* toDo: Improve logic */
+        padding: 10px !important;
+    }
+
+    .card-header {
+        height: auto !important;
+    }
+    
+}
+
+.experience-card {
+    background-color: var(--backdrop-color); /* Transparent-like navbar background */
+    backdrop-filter: blur(10px) saturate(1.7);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 375px; /* Set the height of all cards to the same value */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+.company-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.company-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.designation {
+    font-size: 1.1rem;
+    margin: 5px 0;
+    height: 20px;
+}
+
+
+.duration, .location {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-top: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+}
