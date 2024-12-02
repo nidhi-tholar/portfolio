@@ -154,10 +154,7 @@ body.dark-mode .dark-icon {
 .section {
     height: 100vh;  /* Each section takes up 100% of the viewport height */
     width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 100px 25px 25px 25px;
     scroll-snap-align: start;  /* Snap each section to the start of the viewport */
 }
 
@@ -173,6 +170,9 @@ body.dark-mode .dark-icon {
 /* Home  */
 
 #home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -245,6 +245,8 @@ body.dark-mode .dark-icon {
 
 #experience {
     display: flex;
+    flex-direction: column;
+    gap: 15px;
     justify-content: center;
     align-items: center;
     padding-top: 100px;
@@ -258,12 +260,21 @@ body.dark-mode .dark-icon {
 
 /* For medium screens (e.g., tablets) */
 @media (max-width: 1200px) {
+    #experience{
+        gap: 5px;
+    }
     .experience-container {
         grid-template-columns: repeat(2, 1fr); /* 2 cards per row for medium screens */
+        gap: 5px;
+    }
+
+    .experience-card {
+        height: 275px !important; /* toDo: Improve logic */
+        padding: 10px !important;
     }
 }
 
-/* For small screens (e.g., mobile) */
+/* For small screens */
 @media (max-width: 768px) {
     .experience-container {
         grid-template-columns: 1fr; /* 1 card per row for small screens */
@@ -281,12 +292,12 @@ body.dark-mode .dark-icon {
 }
 
 .experience-card {
-    background-color: var(--backdrop-color); /* Transparent-like navbar background */
+    background-color: var(--backdrop-color);
     backdrop-filter: blur(10px) saturate(1.7);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 375px; /* Set the height of all cards to the same value */
+    height: 375px;
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -335,4 +346,188 @@ body.dark-mode .dark-icon {
     margin-top: 10px;
     flex-grow: 1;
     overflow: hidden;
+}
+
+#projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.contact-container {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-left {
+    flex: 1;
+    max-width: 50%;
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.contact-right {
+    flex: 1;
+    max-width: 50%;
+    height: 100%;
+    overflow: hidden; 
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.image-carousel {
+    overflow: hidden;
+    position: relative;
+    height: 65%;
+}
+
+.contact-top-text {
+    font-size: 12px !important;
+    font-weight: 500;
+    margin-bottom: 5px;
+    opacity: 0.7;
+}
+
+.image-track {
+    display: flex;
+    animation: move-horizontal 15s linear infinite;
+    height: 96%;
+    align-items: center;
+}
+
+.image-track img {
+    height: auto;
+    max-height: 100%;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+@keyframes move-horizontal {
+    0% {
+        transform: translateX(0); /* Start position */
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+#social-links{
+    height: 35%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#social-links div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+#social-links div:hover {
+    transform: translateX(10px);
+}
+
+#social-links a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+#social-links i{
+    font-size: 26px;
+}
+
+#social-links a::after {
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: -3px;
+    transition: width 0.3s ease;
+}
+
+#social-links a:hover {
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+#social-links a:hover::after {
+    width: 100%;
+}
+
+.recomendation-container{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.recomendation-card {
+    position: relative;
+    background-color: var(--backdrop-color);
+    backdrop-filter: blur(10px) saturate(1.7);
+    border-radius: 5px;
+    padding: 20px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.recomendation-card img.company-logo {
+    position: absolute;
+    right: 0;
+    width: 50px;
+    height: auto;
+}
+
+.recomendation-card:nth-of-type(1) img.company-logo {
+    top: 20px;
+}
+
+.recomendation-card:nth-of-type(2) img.company-logo {
+    top: 10px;
+}
+
+.recomendation-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recomendation-profile-picture {
+    width: 60px;
+    height: auto;
+}
+
+.recomendation-company-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
 }

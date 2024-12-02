@@ -6,7 +6,7 @@
     --link-active-bg: hsl(0deg 0% 100% / 50%); 
     /* --link-hover-color: blue; Link hover color */
     --backdrop-color: hsl(45deg 17% 95% / 80%);
-    
+    --accent-color: hsla(354, 67%, 54%, 0.8);
 }
 
 /* Dark Theme Colors */
@@ -17,5 +17,6 @@ body.dark-mode {
     --link-active-bg: hsl(0deg 1.45% 44.76% / 50%);
     /* --link-hover-color: red; Link hover color in dark mode */
     --backdrop-color: hsl(350.21deg 3.45% 26.01% / 70%); /* Darker backdrop */
+    --accent-color: hsla(57, 92%, 48%, 0.8);
 }
 
