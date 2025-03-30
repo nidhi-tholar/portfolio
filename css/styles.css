@@ -7,6 +7,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
     height: 100vh;
     overflow-x: hidden; 
     background-color: var(--background-color);
@@ -110,6 +111,10 @@ body.dark-mode .dark-icon {
 
 /* For phone screens */
 @media screen and (max-width: 768px) {
+    body{
+        font-size: 0.8rem;
+    }
+
     /* Header adjustments */
     .header {
         flex-direction: column;
@@ -141,6 +146,24 @@ body.dark-mode .dark-icon {
     .toggle-btn {
         margin-top: 10px;
     }
+
+    .recomendation-container {
+        gap: 15px;
+    }
+
+    .recomendation-card {
+        max-width: 100%; 
+        padding: 15px;
+    }
+
+    .recomendation-card img.company-logo {
+        width: 40px; 
+    }
+
+    .recomendation-header {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
 }
 
 
@@ -161,10 +184,6 @@ body.dark-mode .dark-icon {
 .section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-}
-
-.section p {
-    font-size: 1rem;
 }
 
 /* Home  */
@@ -209,7 +228,8 @@ body.dark-mode .dark-icon {
     height: auto;
     max-width: 50vw;
     max-height: 70vh;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .tech-item {
@@ -323,13 +343,13 @@ body.dark-mode .dark-icon {
 }
 
 .company-name {
-    font-size: 1.6rem;
+    font-size: 1rem;
     font-weight: bold;
     flex-grow: 1;
 }
 
 .designation {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     margin: 5px 0;
     height: 20px;
 }
@@ -341,7 +361,7 @@ body.dark-mode .dark-icon {
 }
 
 .description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.4;
     margin-top: 10px;
     flex-grow: 1;
@@ -357,6 +377,7 @@ body.dark-mode .dark-icon {
 
 #contact {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-bottom: 50px;
@@ -366,35 +387,44 @@ body.dark-mode .dark-icon {
     display: flex;
     gap: 5px;
     width: 100%;
-    height: 100%;
+    height: 100%; /* chat told to remove*/
+    flex-wrap: wrap;
 }
 
-.contact-left {
-    flex: 1;
-    max-width: 50%;
-
+.contact-left, .contact-right {
+    flex: 1 1 48%;
     padding: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.contact-left {
     justify-content: flex-end;
 }
 
 .contact-right {
-    flex: 1;
     max-width: 50%;
     height: 100%;
-    overflow: hidden; 
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
+    justify-content: space-between;
+    gap: 10px;
+} 
 
 .image-carousel {
     overflow: hidden;
     position: relative;
-    height: 65%;
+    max-height: 70%;
+}
+
+.image-track {
+    display: flex;
+    animation: move-horizontal 15s linear infinite;
+}
+
+.image-track img {
+    width: 100%;
+    height: auto;
+    margin-right: 5px;
+    border-radius: 5px;
 }
 
 .contact-top-text {
@@ -404,19 +434,6 @@ body.dark-mode .dark-icon {
     opacity: 0.7;
 }
 
-.image-track {
-    display: flex;
-    animation: move-horizontal 15s linear infinite;
-    height: 96%;
-    align-items: center;
-}
-
-.image-track img {
-    height: auto;
-    max-height: 100%;
-    margin-right: 5px;
-    border-radius: 5px;
-}
 
 @keyframes move-horizontal {
     0% {
@@ -428,20 +445,19 @@ body.dark-mode .dark-icon {
 }
 
 #social-links{
-    height: 35%;
-
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    height: 30%;
+    max-height: 30%;
 }
 
 #social-links div {
     display: flex;
     align-items: center;
     gap: 10px;
-    position: relative;
     transition: transform 0.3s ease-in-out;
-    margin-bottom: 20px;
 }
 
 #social-links div:hover {
@@ -451,15 +467,13 @@ body.dark-mode .dark-icon {
 #social-links a{
     text-decoration: none;
     color: var(--text-color);
-    font-size: 26px;
-    font-weight: 400;
+    font-size: 1.5rem;
     letter-spacing: 0.05em;
-    position: relative;
     transition: color 0.3s ease;
 }
 
-#social-links i{
-    font-size: 26px;
+#social-links i {
+    font-size: 1.5rem;
 }
 
 #social-links a::after {
@@ -488,42 +502,33 @@ body.dark-mode .dark-icon {
 }
 
 .recomendation-card {
-    position: relative;
     background-color: var(--backdrop-color);
     backdrop-filter: blur(10px) saturate(1.7);
     border-radius: 5px;
-    padding: 20px;
+    padding: 15px;
     height: auto;
+    max-height: 250px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .recomendation-card img.company-logo {
     position: absolute;
     right: 0;
-    width: 50px;
+    top: 1;
+    width: 40px;
     height: auto;
+    max-width: 100%;
 }
 
-.recomendation-card:nth-of-type(1) img.company-logo {
-    top: 20px;
-}
-
-.recomendation-card:nth-of-type(2) img.company-logo {
-    top: 10px;
-}
 
 .recomendation-header {
     display: flex;
     gap: 10px;
     align-items: center;
     margin-bottom: 10px;
-}
-
-.recomendation-profile-picture {
-    width: 60px;
-    height: auto;
 }
 
 .recomendation-company-container {
