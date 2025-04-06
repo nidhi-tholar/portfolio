@@ -418,6 +418,8 @@ body.dark-mode .dark-icon {
 .image-track {
     display: flex;
     animation: move-horizontal 15s linear infinite;
+    height: 100%;
+    width: 100%;
 }
 
 .image-track img {
